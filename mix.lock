@@ -1,0 +1,11 @@
+%{
+  "acceptor_pool": {:hex, :acceptor_pool, "1.0.0-rc.0", "679d741df87fc13599b1aef2df8f78f1f880449a6befab7c44fb6fae0e92a2de", [:rebar3], [], "hexpm"},
+  "goldrush": {:hex, :goldrush, "0.1.9", "f06e5d5f1277da5c413e84d5a2924174182fb108dabb39d5ec548b27424cd106", [:rebar3], [], "hexpm"},
+  "lager": {:hex, :lager, "3.6.6", "23c8f5abc4189f46804791e16bf6421c14ebc5b529dc113bc54639c6c62f255d", [:rebar3], [{:goldrush, "0.1.9", [hex: :goldrush, repo: "hexpm", optional: false]}], "hexpm"},
+  "partisan": {:hex, :partisan, "3.0.0", "960877c00e72203ca23023971c1d8de835ac050148381814832ab334268d9616", [:rebar3], [{:acceptor_pool, "1.0.0-rc.0", [hex: :acceptor_pool, repo: "hexpm", optional: false]}, {:lager, "~> 3.5", [hex: :lager, repo: "hexpm", optional: false]}, {:rand_compat, "~>0.0.3", [hex: :rand_compat, repo: "hexpm", optional: false]}, {:time_compat, "~>0.0.1", [hex: :time_compat, repo: "hexpm", optional: false]}, {:types, "~> 0.1", [hex: :types, repo: "hexpm", optional: false]}, {:uuid, "~>1.7.3", [hex: :uuid_erl, repo: "hexpm", optional: false]}], "hexpm"},
+  "quickrand": {:hex, :quickrand, "1.7.4", "f91f34469d6ac153b951bb34dd9c78029882426bd61e12b85e5ee465850c08ed", [:rebar3], [], "hexpm"},
+  "rand_compat": {:hex, :rand_compat, "0.0.3", "011646bc1f0b0c432fe101b816f25b9bbb74a085713cee1dafd2d62e9415ead3", [:rebar3], [], "hexpm"},
+  "time_compat": {:hex, :time_compat, "0.0.1", "23fe0ad1fdf3b5b88821b2d04b4b5e865bf587ae66056d671fe0f53514ed8139", [:rebar3], [], "hexpm"},
+  "types": {:hex, :types, "0.1.8", "5782b67231e8c174fe2835395e71e669fe0121076779d2a09f1c0d58ee0e2f13", [:rebar3], [], "hexpm"},
+  "uuid": {:hex, :uuid_erl, "1.7.4", "4ec01367fedfbaeeb9d9bc88b2d239d42ce5b53ad284741262f86b71eb82fbfa", [:rebar3], [{:quickrand, "~> 1.7.4", [hex: :quickrand, repo: "hexpm", optional: false]}], "hexpm"},
+}
