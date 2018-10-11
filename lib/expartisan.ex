@@ -4,6 +4,8 @@ defmodule ExPartisan do
   """
 
   @opaque partisan_node :: map
+  @type name :: atom | {:global, term} | {:via, module, term}
+  @type server :: pid | name | {atom, node}
 
   @spec myself() :: partisan_node
   def myself do
@@ -15,24 +17,29 @@ defmodule ExPartisan do
     :partisan_pluggable_peer_service_manager.join(node)
   end
 
+  @spec members() :: [partisan_node]
   def members() do
     :partisan_pluggable_peer_service_manager.members()
   end
 
+  @spec leave() :: :ok
   def leave() do
     :partisan_pluggable_peer_service_manager.leave()
   end
 
+  @spec leave(node :: partisan_node) :: :ok
   def leave(node) do
     :partisan_pluggable_peer_service_manager.leave(node)
   end
 
-  def forward_message(name, server_ref, message) do
-    forward_message(name, :undefined, server_ref, message, [{:transitive, true}])
+  @spec forward_message(node :: partisan_node, server_ref :: server, message :: term) :: :ok
+  def forward_message(node, server_ref, message) do
+    forward_message(node, :undefined, server_ref, message, [{:transitive, true}])
   end
 
-  def cast_message(name, server_ref, message) do
-    cast_message(name, :undefined, server_ref, message, [{:transitive, true}])
+  @spec cast_message(node :: partisan_node, server_ref :: server, message :: term) :: :ok
+  def cast_message(node, server_ref, message) do
+    cast_message(node, :undefined, server_ref, message, [{:transitive, true}])
   end
 
   defp forward_message(
