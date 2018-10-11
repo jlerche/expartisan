@@ -7,7 +7,11 @@ defmodule ExPartisan.MixProject do
       version: "0.1.0",
       elixir: "~> 1.7",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      description: description(),
+      package: package(),
+      name: "ExPartisan",
+      source_url: "https://github.com/jlerche/expartisan"
     ]
   end
 
@@ -23,6 +27,21 @@ defmodule ExPartisan.MixProject do
     [
       {:partisan, git: "https://github.com/lasp-lang/partisan.git", branch: "rename-backend"},
       {:ex_doc, "~> 0.13", only: :dev}
+    ]
+  end
+
+  defp description do
+    """
+    ExPartisan is a wrapper around Partisan, an Erlang library part of the Lasp project. Partisan is a flexible, TCP-based membership system.
+    """
+  end
+
+  defp package do
+    [
+      name: "expartisan",
+      links: %{
+        "GitHub" => "https://github.com/jlerche/expartisan"
+      }
     ]
   end
 end
