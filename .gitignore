@@ -22,3 +22,6 @@ erl_crash.dump
 # Ignore package tarball (built via "mix hex.build").
 expartisan-*.tar
 
+# ide/dev stuff
+.idea
+.on-save.json
