@@ -56,4 +56,21 @@ defmodule ExPartisan.Vclock do
       nil -> 0
     end
   end
+
+  @spec increment(node :: vclock_node, vclock :: vclock) :: vclock
+  def increment(node, vclock) do
+    {ctr, new_v} =
+      case List.keytake(node, vclock, 1) do
+        nil -> {1, vclock}
+        {{_other_node, counter}, mod_v} -> {counter + 1, mod_v}
+      end
+
+    [{node, ctr} | new_v]
+  end
+
+  def all_nodes(vclock) do
+    for {x, _} <- Enum.sort(vclock) do
+      x
+    end
+  end
 end

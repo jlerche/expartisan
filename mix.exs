@@ -21,7 +21,8 @@ defmodule ExPartisan.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:partisan, "~> 3.0", runtime: false}
+      {:partisan, "~> 3.0", runtime: false},
+      {:ex_doc, "~> 0.13", only: :dev}
     ]
   end
 end
