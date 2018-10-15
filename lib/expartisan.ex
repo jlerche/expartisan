@@ -8,6 +8,18 @@ defmodule ExPartisan do
   @type server :: pid | name | {atom, node}
 
   @doc """
+  Returns a map containing configuration settings about the node the
+  function is executing on.
+
+  ## Examples
+
+      iex> ExPartisan.myself()
+      %{
+        channels: [:undefined],
+        listen_addrs: [%{ip: {127, 0, 0, 1}, port: 51275}],
+        name: :"119ee492-d000-11e8-b14a-80e0ef1a496c@127.0.0.1",
+        parallelism: 1
+      }
 
   """
   @spec myself() :: partisan_node
