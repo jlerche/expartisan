@@ -1,6 +1,17 @@
 # ExPartisan
 
-**TODO: Add description**
+ExPartisan is an Elixir wrapper around the Erlang library Partisan, a membership
+system that uses TCP.
+
+## Usage
+
+The current API exposes only a minimal set of methods, but enough to build something.
+Nodes can be connected to each with `join/1`, and membership queried with
+`members/0`. From there, messages can be sent to processes on nodes via
+`send_message/3` and `cast_message/3`. The full API is listed in the documentation.
+
+Note, neither ExPartisan nor Partisan provide a method to discover other nodes.
+It is left up to the rest of the application to determine get that information.
 
 ## Installation
 
@@ -14,8 +25,3 @@ def deps do
   ]
 end
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/expartisan](https://hexdocs.pm/expartisan).
-
