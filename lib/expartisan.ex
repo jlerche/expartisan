@@ -74,6 +74,11 @@ defmodule ExPartisan do
 
   ## Examples
 
+
+      iex(foo@127.0.0.1)> ExPartisan.members
+      {:ok, [:"foo@127.0.0.1", :"bar@127.0.0.1"]}
+      iex(foo@127.0.0.1)> ExPartisan.leave
+
   """
   @spec leave() :: :ok
   def leave() do
@@ -82,6 +87,16 @@ defmodule ExPartisan do
 
   @doc """
   Disconnects the specified `node`.
+
+  ## Examples
+
+      iex(foo@127.0.0.1)> ExPartisan.members
+      {:ok, [:"foo@127.0.0.1", :"bar@127.0.0.1"]}
+      iex(foo@127.0.0.1)> ExPartisan.leave(bar)
+      :ok
+      iex(foo@127.0.0.1)> ExPartisan.members
+      {:ok, [:"foo@127.0.0.1"]}
+
   """
   @spec leave(node :: partisan_node) :: :ok
   def leave(node) do
@@ -91,6 +106,22 @@ defmodule ExPartisan do
   @doc """
   Sends a message to a process living on `node`. This is analogous to
   `Kernel.send/2`.
+
+  ## Examples
+
+      iex(bar@127.0.0.1)> self
+      #PID<0.308.0>
+
+
+      iex(foo@127.0.0.1)> ExPartisan.send_message(bar, :c.pid(0,308,0), :hello)
+      :ok
+
+      iex(bar@127.0.0.1)4> flush
+      :hello
+      :ok
+
+
+  Note that `server_ref` can be something other than a pid.
   """
   @spec send_message(node :: partisan_node, server_ref :: server, message :: term) :: :ok
   def send_message(node, server_ref, message) do
